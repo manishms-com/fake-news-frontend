@@ -5,11 +5,7 @@ import ResultDisplay from "../sections/resultDisplay";
 import { useNavigate } from "react-router-dom";
 import mockData from "../mockdata";
 
- {/*
-    axios.defaults.baseURL =
-     "https://sabrixter--fake-news-detector-fastapi-app.modal.run/";
 
-     */}
 
 export default function Home() {
     const navigate = useNavigate();
