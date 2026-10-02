@@ -104,7 +104,7 @@ function ResultDisplay({ data }) {
             </div>
 
             <div className="">
-                <div className="glass-panel flex justify-between px-6 py-5 ">
+                <div className="glass-panel flex flex-col md:flex-row flex-wrap gap-3 justify-between px-6 py-5 ">
                     <h2 className="text-sm
                         font-bold
                         uppercase
@@ -113,7 +113,7 @@ function ResultDisplay({ data }) {
                         sm:text-base">
                         Analysis Sources
                     </h2>
-                    <div className="flex">
+                    <div className="">
 
                         <Button
                             className={filter === "all" ? "active" : ""}
