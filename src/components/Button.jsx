@@ -5,14 +5,14 @@ export default function Button({ children, onClick, type = "button", className =
             onClick={onClick}
             className={`
             rounded-xl
-            bg-white/20
+            bg-white/40
             text-blue
             font-medium
             shadow-4xl
             transition
             duration-300
             ease-in-out
-            hover:bg-pink-300 hover:scale-105
+            hover:bg-white/70 hover:scale-105
             focus:bg-pink-700
              ${className}
             p-2

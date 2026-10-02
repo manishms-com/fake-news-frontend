@@ -1,9 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
 import SearchBox from "../sections/searchBox";
+import About from "./About"
 import ResultDisplay from "../sections/resultDisplay";
 import { useNavigate } from "react-router-dom";
 import mockData from "../mockdata";
+
+
+axios.defaults.baseURL = import.meta.env.backend_url;
 
 
 
@@ -15,7 +19,7 @@ export default function Home() {
         try {
             console.log("Searching for:", query);
 
-            {/* 
+           {/* 
                 const response = await axios.post("/check", {
                  claim: query
              });
@@ -24,7 +28,7 @@ export default function Home() {
 
              const result = response.data?.data || response.data;
 
-             */}
+            */}
             const result = mockData;
 
             setSearchResult(result);
@@ -43,14 +47,11 @@ export default function Home() {
 
     return (
         <div className="">
-
-
-
             <SearchBox onSearch={handleSearch} />
-
             {searchResult && (
                 <ResultDisplay data={searchResult} />
             )}
+           // <About />
 
         </div>
     );

@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import ResultsPage from "./pages/ResultsPage";
+import About from "./pages/About";
 
 
 export default function App() {
@@ -15,10 +16,10 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/results" element={<ResultsPage />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </main>
       </div>
     </div>
   );
 }
-

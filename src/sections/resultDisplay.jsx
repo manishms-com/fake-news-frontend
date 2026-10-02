@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Button from "../components/Button";
+import { FaSquareArrowUpRight } from "react-icons/fa6";
+
 
 function ResultDisplay({ data }) {
     const [filter, setFilter] = useState("all");
@@ -164,10 +166,10 @@ function ResultDisplay({ data }) {
                                         {item.result.title}
                                     </strong>
                                     <Button
-                                        className=""
+                                        className="m-1 p-2 inline-flex items-center justify-center gap-2"
                                         onClick={() => window.open(item.result.url, "_blank", "noopener,noreferrer")}
                                     >
-                                        View
+                                        View<FaSquareArrowUpRight/>
                                     </Button>
 
                                 </div>

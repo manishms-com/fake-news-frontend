@@ -1,14 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Isometra&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import "tailwindcss";
 
-@theme{
-   --font-logo: "Isometra", sans-serif;
+@theme {
+  --font-logo: "Isometra", sans-serif;
 }
 
 @utility glass-panel {
-  @apply bg-white/10 backdrop-blur-lg border border-white/30 rounded-2xl shadow-lg;
+  @apply bg-white/20 backdrop-blur-lg border border-white/40 rounded-2xl shadow-lg shadow-slate-900/5;
 }
 
-@utility analysis-result-box{
+@utility analysis-result-box {
   @apply flex justify-between items-center glass-panel px-4 py-3 m-1
+}
+
+@keyframes typewriter {
+  0% {
+    width: 0;
+  }
+
+  50% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
 }
