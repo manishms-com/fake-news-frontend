@@ -51,7 +51,7 @@ export default function Home() {
             {searchResult && (
                 <ResultDisplay data={searchResult} />
             )}
-           // <About />
+           {/*<About /> */} 
 
         </div>
     );
