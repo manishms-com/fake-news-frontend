@@ -38,7 +38,7 @@ function Navbar() {
                 sticky
                 top-4
                 z-50
-                m-4
+                mx-2 my-4 sm:mx-4
                 rounded-2xl
                 border
                 border-white/10
@@ -53,10 +53,9 @@ function Navbar() {
                     flex
                     items-center
                     justify-between
-                    px-4
-                    py-3
+                    px-2 py-2
+                    sm:px-4 sm:py-3
                     md:px-6
-                    md:py-4
                 "
             >
                 <Link
@@ -67,6 +66,7 @@ function Navbar() {
                         font-bold
                         uppercase
                         text-amber-600
+                        sm:text-xl
                     "
                 >
                     Fake
@@ -81,6 +81,7 @@ function Navbar() {
                             key={link.id}
                             to={link.to}
                             className="
+                                shrink-0
                                 rounded-xl
                                 px-4
                                 py-2
@@ -115,6 +116,7 @@ function Navbar() {
                         transition-all
                         duration-300
                         hover:bg-black/30
+                        sm:p-1
                     "
                 >
                     {darkMode ? (

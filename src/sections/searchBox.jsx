@@ -17,16 +17,25 @@ export default function SearchBox({ onSearch }) {
                 <div className="relative w-fit">
                     <h2
                         className="
-                text-2xl
-                md:text-2xl
-                font-logo
-                font-bold
-                uppercase
-                bg-linear-to-r from-amber-600 via-pink-500 to-red-300 bg-clip-text text-transparent
-                overflow-hidden
-                whitespace-nowrap
-                animate-[typewriter_6s_steps(20)_infinite,blink_0.7s_step-end_infinite]
-                dark:from-amber-600 dark:via-pink-500 dark:to-red-300
+    text-base
+    sm:text-lg
+    md:text-xl
+    lg:text-2xl
+    font-logo
+    font-bold
+    uppercase
+    bg-linear-to-r
+    from-amber-600
+    via-pink-500
+    to-red-300
+    bg-clip-text
+    text-transparent
+    overflow-hidden
+    whitespace-nowrap
+    animate-[typewriter_6s_steps(20)_infinite,blink_0.7s_step-end_infinite]
+    dark:from-amber-600
+    dark:via-pink-500
+    dark:to-red-300
             "
                     >
                         Check your news here
