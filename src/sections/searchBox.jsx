@@ -22,10 +22,11 @@ export default function SearchBox({ onSearch }) {
                 font-logo
                 font-bold
                 uppercase
-                bg-linear-to-r from-purple-600 via-pink-500 to-blue-600 bg-clip-text text-transparent
+                bg-linear-to-r from-amber-600 via-pink-500 to-red-300 bg-clip-text text-transparent
                 overflow-hidden
                 whitespace-nowrap
                 animate-[typewriter_6s_steps(20)_infinite,blink_0.7s_step-end_infinite]
+                dark:from-amber-600 dark:via-pink-500 dark:to-red-300
             "
                     >
                         Check your news here
@@ -49,12 +50,11 @@ export default function SearchBox({ onSearch }) {
                         rounded-xl
                         border
                         border-white/40
-                        bg-white/20
                         px-6
                         py-3
                         m-2
-                        text-gray-800
-                        placeholder:text-gray-500
+                        text-white
+                        placeholder:text-white
                         outline-none
                         backdrop-blur-md
                         transition

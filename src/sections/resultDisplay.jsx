@@ -3,8 +3,48 @@ import Button from "../components/Button";
 import { FaSquareArrowUpRight } from "react-icons/fa6";
 
 
-function ResultDisplay({ data }) {
+
+function ResultDisplay({ data, loading }) {
     const [filter, setFilter] = useState("all");
+
+    if (loading) {
+        return (
+            <div className="w-full space-y-6 animate-pulse">
+
+                <div className="glass-panel flex items-center justify-center px-6 py-5">
+                    <div className="h-5 w-48 rounded-lg bg-gray-400/30"></div>
+                </div>
+
+                <div className="glass-panel grid grid-cols-1 gap-6 md:grid-cols-2 p-6">
+
+                    <div className="space-y-4">
+                        <div className="h-5 w-52 rounded bg-gray-400/30"></div>
+
+                        <div className="h-12 rounded-xl bg-gray-400/30"></div>
+                        <div className="h-12 rounded-xl bg-gray-400/30"></div>
+                        <div className="h-12 rounded-xl bg-gray-400/30"></div>
+                    </div>
+
+                    <div className="flex flex-col items-center justify-center">
+                        <div className="mb-4 h-4 w-20 rounded bg-gray-400/30"></div>
+                        <div className="h-10 w-32 rounded-lg bg-gray-400/30"></div>
+                    </div>
+
+                </div>
+
+                <div className="glass-panel p-6">
+                    <div className="mb-5 h-5 w-48 rounded bg-gray-400/30"></div>
+
+                    <div className="space-y-3">
+                        <div className="h-16 rounded-xl bg-gray-400/30"></div>
+                        <div className="h-16 rounded-xl bg-gray-400/30"></div>
+                        <div className="h-16 rounded-xl bg-gray-400/30"></div>
+                    </div>
+                </div>
+
+            </div>
+        );
+    }
 
     if (!data || !data.score) {
         return (
@@ -27,6 +67,7 @@ function ResultDisplay({ data }) {
             </div>
         );
     }
+
     const { score } = data;
     const { verdict, supporting_score, neutral_score, contradicting_score, results } = score;
 
@@ -78,28 +119,28 @@ function ResultDisplay({ data }) {
                         Evidence Distribution
                     </h4>
 
-                    <div className="analysis-result-box">
-                        <span className="">Supporting Score</span>
-                        <span className="">{supporting_score.toFixed(2)}</span>
+                    <div className="analysis-result-box ">
+                        <span className="text-violet-200">Supporting Score</span>
+                        <span className="text-violet-200">{supporting_score.toFixed(2)}</span>
                     </div>
 
                     <div className="analysis-result-box">
-                        <span className="">Neutral Score</span>
-                        <span className="">{neutral_score.toFixed(2)}</span>
+                        <span className="text-violet-200">Neutral Score</span>
+                        <span className="text-violet-200">{neutral_score.toFixed(2)}</span>
                     </div>
 
                     <div className="analysis-result-box">
-                        <span className="">Contradicting Score</span>
-                        <span className="">{contradicting_score.toFixed(2)}</span>
+                        <span className="text-violet-200">Contradicting Score</span>
+                        <span className="text-violet-200">{contradicting_score.toFixed(2)}</span>
                     </div>
                 </div>
 
                 <div className="flex flex-col items-center justify-center">
-                    <h3 className="text-gray-700 text-xs tracking-[0.2em] uppercase font-logo mb-4">
+                    <h3 className="text-violet-700 text-xs tracking-[0.2em] uppercase font-logo mb-4">
                         Verdict
                     </h3>
                     <div
-                        className={`text-3xl md:text-4xl font-logo font-bold ${verdict.toLowerCase() === 'true' ? 'text-emerald-400' : 'text-rose-400'}`}                    >
+                        className={`text-3xl md:text-4xl font-logo font-bold ${verdict.toLowerCase() === 'true' ? 'text-green-600' : 'text-green-700'}`}                    >
                         {verdict.toUpperCase()}
                     </div>
                 </div>
@@ -169,7 +210,7 @@ function ResultDisplay({ data }) {
                                         className="m-1 p-2 inline-flex items-center justify-center gap-2"
                                         onClick={() => window.open(item.result.url, "_blank", "noopener,noreferrer")}
                                     >
-                                        View<FaSquareArrowUpRight/>
+                                        View<FaSquareArrowUpRight />
                                     </Button>
 
                                 </div>

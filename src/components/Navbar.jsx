@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
-import Button from "./Button";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
+import { useState } from "react";
+import Button from "./Button"
 
 const navLinks = [
     {
@@ -20,51 +22,113 @@ const navLinks = [
 ];
 
 function Navbar() {
+    const [darkMode, setDarkMode] = useState(() =>
+        document.documentElement.classList.contains("dark")
+    );
+
+    const toggleDarkMode = () => {
+        const nextDarkMode = !darkMode;
+        document.documentElement.classList.toggle("dark", nextDarkMode);
+        setDarkMode(nextDarkMode);
+    };
+
     return (
-        <nav className="sticky 
-        top-4 
-        glass-panel 
-        p-2 
-        m-4 
-        rounded-2xl
-        z-50">
-            <div className="px-4 
-            py-3
-            md:px-6
-            md:py-4 
-            flex 
-            items-center 
-            justify-between">
-                <Link to="#home" className="text-2xl font-logo uppercase text-bold text-gray-800">
-                    Fake<span className="text-purple-600">News</span>
+        <nav
+            className="
+                sticky
+                top-4
+                z-50
+                m-4
+                rounded-2xl
+                border
+                border-white/10
+                p-2
+                shadow-2xl
+                backdrop-blur-xl
+                
+            "
+        >
+            <div
+                className="
+                    flex
+                    items-center
+                    justify-between
+                    px-4
+                    py-3
+                    md:px-6
+                    md:py-4
+                "
+            >
+                <Link
+                    to="/"
+                    className="
+                        text-2xl
+                        font-logo
+                        font-bold
+                        uppercase
+                        text-amber-600
+                    "
+                >
+                    Fake
+                    <span className="text-white dark:text-purple-400">
+                        News
+                    </span>
                 </Link>
 
-                <div className="hidden md:flex items-center gap-2">
+                <div className="hidden items-center gap-2 md:flex">
                     {navLinks.map((link) => (
                         <Link
                             key={link.id}
                             to={link.to}
-                            className="rounded-xl
-                                        font-logo
-                                        px-4
-                                        py-2
-                                        font-medium
-                                        text-slate-700
-                                        transition-all
-                                        duration-500
-                                        ease-out
-                                        hover:bg-white/60
-                                        hover:text-purple-700
-                                        hover:-translate-y-0.5
-                                        "
-
+                            className="
+                                rounded-xl
+                                px-4
+                                py-2
+                                font-logo
+                                font-medium
+                                text-amber-300
+                                transition-all
+                                duration-500
+                                ease-out
+                                hover:-translate-y-0.5
+                                hover:bg-white/60
+                                hover:text-purple-700
+                                dark:text-white
+                            "
                         >
                             {link.name}
                         </Link>
                     ))}
                 </div>
 
-                <Button className="p-2 bg-black/20">Dark Mode</Button>
+                <Button
+                    onClick={toggleDarkMode}
+                    className="
+                        inline-flex
+                        items-center
+                        gap-2
+                        rounded-xl
+                        bg-black/20
+                        px-4
+                        py-2
+                        text-gray-800
+                        transition-all
+                        duration-300
+                        hover:bg-black/30
+                    "
+                >
+                    {darkMode ? (
+                        <>
+                            <MdLightMode className="text-lg" />
+                            Light Mode
+                        </>
+                    ) : (
+                        <>
+                            <MdDarkMode className="text-lg" />
+                            Dark Mode
+                        </>
+                    )}
+                </Button>
             </div>
         </nav>
     );

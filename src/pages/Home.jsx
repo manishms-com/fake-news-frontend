@@ -14,12 +14,14 @@ axios.defaults.baseURL = import.meta.env.backend_url;
 export default function Home() {
     const navigate = useNavigate();
     const [searchResult, setSearchResult] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const handleSearch = async (query) => {
         try {
+            setLoading(true);
             console.log("Searching for:", query);
 
-           {/* 
+            {/* 
                 const response = await axios.post("/check", {
                  claim: query
              });
@@ -30,6 +32,7 @@ export default function Home() {
 
             */}
             const result = mockData;
+            await new Promise((resolve) => setTimeout(resolve, 8000));
 
             setSearchResult(result);
 
@@ -42,16 +45,21 @@ export default function Home() {
 
         } catch (error) {
             console.error("Search failed:", error);
+        } finally {
+            setLoading(false);
         }
     };
 
     return (
-        <div className="">
+        <div className="animate-[searchSlide_4s_cubic-bezier(0.16,1,0.3,1)_0.3s_both]">
             <SearchBox onSearch={handleSearch} />
-            {searchResult && (
-                <ResultDisplay data={searchResult} />
+            {(loading || searchResult) && (
+                <ResultDisplay
+                    data={searchResult}
+                    loading={loading}
+                />
             )}
-           {/*<About /> */} 
+            {/*<About /> */}
 
         </div>
     );
