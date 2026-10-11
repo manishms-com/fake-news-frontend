@@ -207,10 +207,10 @@ function ResultDisplay({ data, loading }) {
                                         {item.result.title}
                                     </strong>
                                     <Button
-                                        className="m-1 p-2 inline-flex items-center justify-center gap-2"
+                                        className="m-1 p-2 h-12 w-12 inline-flex items-center justify-center gap-2"
                                         onClick={() => window.open(item.result.url, "_blank", "noopener,noreferrer")}
                                     >
-                                        View<FaSquareArrowUpRight />
+                                        <FaSquareArrowUpRight />
                                     </Button>
 
                                 </div>

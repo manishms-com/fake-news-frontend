@@ -102,35 +102,30 @@ function Navbar() {
                     ))}
                 </div>
 
-                <Button
+                <button
                     onClick={toggleDarkMode}
                     className="
-                        inline-flex
-                        items-center
-                        gap-2
-                        rounded-xl
-                        bg-black/20
-                        px-4
-                        py-2
-                        text-gray-800
-                        transition-all
-                        duration-300
-                        hover:bg-black/30
-                        sm:p-1
+                        flex h-12 w-12 shrink-0
+                        items-center justify-center
+                        rounded-full
+                        p-0
+                         text-white
+                        transition-all duration-300
+                        hover:scale-110
+                         hover:bg-white/40
+                         sm:p-1
                     "
                 >
                     {darkMode ? (
                         <>
                             <MdLightMode className="text-lg" />
-                            Light Mode
                         </>
                     ) : (
                         <>
                             <MdDarkMode className="text-lg" />
-                            Dark Mode
                         </>
                     )}
-                </Button>
+                </button>
             </div>
         </nav>
     );

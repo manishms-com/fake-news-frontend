@@ -6,7 +6,7 @@ import About from "./pages/About";
 
 export default function App() {
   return (
-    <div className="relative min-h-screen overflow-hidden scroll-smooth">
+    <div className="relative min-h-screen overflow-y-hidden scroll-smooth">
 
       <div
         className="
